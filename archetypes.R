@@ -16,7 +16,6 @@ pheno1=fread('pheno.csv',skip = 1,data.table = FALSE)
 obs_cohort=two_myCombats[, colnames(two_myCombats) %in% pheno1$Sample_Name]
 tübingen_cohort=obs_cohort[rownames(obs_cohort) %in% rownames(my_combat_dmp_high_frq),]
 tübingen_cohort_t=t(tübingen_cohort)
-save(Tubingen_arch,file='archetypes_tub')
 
 ####I selected robust archetypes ,because it is more robust to outlier
 Tubingen_arch<-stepArchetypes(t(tübingen_cohort), k=1:10,nrep = 100,family = archetypesFamily("robust",zalphasfn = archetypes:::ginv.zalphasfn))
