@@ -93,8 +93,15 @@ pca_4=pca_4 %>%
 
 ######do with ggplot
 pca_tub=prcomp(pca_4[,-5])
-fviz=fviz_pca_ind(pca_tub,
-             repel = TRUE,geom = 'point',habillage=pca_4$arch)
+fviz1<-fviz_pca_ind(pca_tub,
+                     repel = TRUE,geom = "point")+geom_point(aes(colour=pca_input$arch,shape=pca_input$arch),size=3)+scale_color_brewer(palette="Dark2")+theme(
+                       # Hide panel borders and remove grid lines
+                       panel.border = element_blank(),
+                       panel.grid.major = element_blank(),
+                       panel.grid.minor = element_blank()
+                       )+
+    theme(legend.text = element_text(size=15),legend.title = element_text(size=15),title = element_text(size=20))+
+    labs(col= "Archetypes",shape="Archetypes")
 
 pdf('pca_4arch.pdf')
 fviz
