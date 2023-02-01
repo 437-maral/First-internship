@@ -26,8 +26,9 @@ cell_com3_6=rbind(cell_com3,cell_com6)
 cell_com5_6=rbind(cell_com5,cell_com6)
 
 ###compare between clusters
-###comparison between 3_5
 
+
+##comparison 3_5
 
 plot3_5=list()
 for(i in 2:ncol(cell_com3_5)-1){
@@ -67,6 +68,8 @@ for(i in 2:ncol(cell_com3_6)-1){
     ggtitle(names(cell_com3_6)[i])
 }
 
+
+##comparison 5_6
 plot5_6=list()
 for(i in 2:ncol(cell_com5_6)-1){
   plot5_6[[i]]=
