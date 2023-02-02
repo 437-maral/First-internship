@@ -93,3 +93,32 @@ gridExtra::marrangeGrob(grobs = plot3_6, nrow = 2, ncol = 3,top='cluster3_6')
 gridExtra::marrangeGrob(grobs = plot5_6, nrow = 2, ncol = 3,top='cluster5_6')
 dev.off()
 
+my_comparisons <- list(c("3", "5"),c("3", "6"),c("5", "6"))
+
+plot_3_5_6=list()
+for(i in 2:ncol(cell_com)-1){
+  plot_3_5_6[[i]]=
+    ggplot(cell_com,aes_string(x = 'Group',y = names(cell_com)[i],fill='Group')) +
+    geom_boxplot(show.legend = FALSE,outlier.shape = NA)+
+    geom_point(position=position_jitterdodge(jitter.width =0.1),show.legend = FALSE)+
+    stat_compare_means(label.x.npc="center",comparisons = my_comparisons)+
+    theme_classic()+
+    theme(text = element_text(size = 20),
+          plot.title = element_text(hjust = 0.5),
+          axis.title.x = element_blank(),
+          #axis.text.x=element_blank(),
+          axis.ticks.x=element_blank())+
+    ggtitle(names(cell_com)[i])+
+    scale_fill_manual(values=c("#999999","Darkgreen",'Darkorange'))
+}
+
+ggsave(filename = 'whole_cellcomposition_three_comparison.pdf',width=16,height=9,  gridExtra::marrangeGrob(grobs = plot_3_5_6, nrow = 2, ncol = 3))
+
+
+
+
+
+
+
+
+
