@@ -1,18 +1,5 @@
 
-#####################################################################################################
-## Workflow to ...
-##
-## Markus Jaehnert, M.Sc.
-## German Institute of Human Nutrition Potsdam-Rehbruecke
-## Department of Experimental Diabetology
-## Arthur-Scheunert-Allee 114-116
-## 14558 Nuthetal, Germany
-
-## git version 
-## started on:  Wed Dec 14 11:16:46 2022
-
-
-## debugging done by
+####################################################################################################
 
 #####################################################################################################
 
